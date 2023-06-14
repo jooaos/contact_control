@@ -4,7 +4,7 @@ ARG USER_ID=1000
 ARG GROUP_ID=1000
 
 RUN apk add --no-cache openssl bash mysql-client
-RUN docker-php-ext-install pdo pdo_mysql
+RUN docker-php-ext-install mysqli pdo pdo_mysql
 
 RUN apk add --update --no-cache \
         vim \

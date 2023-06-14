@@ -30,6 +30,8 @@ services:
     volumes:
       - .docker/db/dbdata:/var/lib/mysql
       - .docker/db/scripts:/docker-entrypoint-initdb.d
+    networks:
+      - contact_control
     environment:
       - MARIADB_USER=admin
       - MARIADB_PASSWORD=admin
