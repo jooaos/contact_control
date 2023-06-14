@@ -2,7 +2,8 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Enum\UserType;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,11 +15,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $this->call(UserTypeSeeder::class);
+        // Super admin
+        User::factory()->make([
+            'user_type_id' => UserType::ID_SUPER_ADMIN
+        ]);
+        // Admin
+        User::factory()->make([
+            'user_type_id' => UserType::ID_ADMIN
+        ]);
+        // Member
+        User::factory()->make([
+            'user_type_id' => UserType::ID_MEMBER
+        ]);
     }
 }
