@@ -31,7 +31,7 @@ class UserTypeSeeder extends Seeder
         ];
         array_map(function ($item) {
             ModelsUserType::updateOrCreate(
-                ['id' => $item->id],
+                ['id' => $item['id']],
                 $item
             );
         }, $types);
