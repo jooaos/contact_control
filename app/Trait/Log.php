@@ -21,6 +21,11 @@ trait Log
         return FacadesLog::error($context, $logDetail);
     }
 
+    public function logErrorWithoutException(string $context, string $message)
+    {
+        return FacadesLog::error($context, [$message]);
+    }
+
     public function logInfo(string $context, array $additionalInfo = [])
     {
         return FacadesLog::info($context, $additionalInfo);
