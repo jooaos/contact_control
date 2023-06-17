@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Services\User\Contracts\UserServiceContract;
+use App\Services\User\UserService;
 use Illuminate\Support\ServiceProvider;
 
 class ServiceLayerProvider extends ServiceProvider
@@ -23,6 +25,6 @@ class ServiceLayerProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->app->bind(UserServiceContract::class, UserService::class);
     }
 }
