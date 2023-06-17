@@ -17,15 +17,15 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(UserTypeSeeder::class);
         // Super admin
-        User::factory()->make([
+        User::factory(1)->create([
             'user_type_id' => UserType::ID_SUPER_ADMIN
         ]);
         // Admin
-        User::factory()->make([
+        User::factory(1)->create([
             'user_type_id' => UserType::ID_ADMIN
         ]);
         // Member
-        User::factory()->make([
+        User::factory(1)->create([
             'user_type_id' => UserType::ID_MEMBER
         ]);
     }
