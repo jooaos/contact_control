@@ -13,6 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Sign In
+Route::get('/signin', [App\Http\Controllers\Auth\SignInController::class, 'show'])
+    ->name('signin.view');
+
+Route::post('/signin', [App\Http\Controllers\Auth\SignInController::class, 'handle'])
+    ->name('signin');
+
+// Sign UP
+Route::get('/signup', [App\Http\Controllers\Auth\SignUpController::class, 'show'])
+    ->name('signup.view');
+
+Route::post('/signup', [App\Http\Controllers\Auth\SignUpController::class, 'handle'])
+    ->name('signup');
+
+// Logout
+Route::get('/logout', [App\Http\Controllers\Auth\LogoutController::class, 'handle'])
+    ->name('logout');
