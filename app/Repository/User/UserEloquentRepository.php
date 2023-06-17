@@ -21,6 +21,11 @@ class UserEloquentRepository implements UserRepositoryContract
         return User::find($id, $columns);
     }
 
+    public function getWithCustomQuery(array $params): Collection
+    {
+        return User::where($params)->get();
+    }
+
     public function create(UserCreateDTO $userDTO): User
     {
         return User::create($userDTO->toArray());
