@@ -88,9 +88,6 @@
                                 <dd class="col-sm-8">{{ $contact->country ?? 'NA' }}</dd>
                             </dl>
                         </div>
-                        <div class="card-footer">
-                            <a href="#" class="btn btn-primary">View Profile</a>
-                        </div>
                     </div>
                 </div>
             @endforeach
