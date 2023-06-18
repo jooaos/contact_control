@@ -23,7 +23,7 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link @yield('profile-page')" href="#">Profile</a>
+                        <a class="nav-link @yield('profile-page')" href=" {{ route('user.profile') }} ">Profile</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link @yield('contacts-page')" href="{{ route('user.search') }}">Contacts</a>
@@ -47,7 +47,7 @@
         @yield('content')
     </div>
 
-    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+    <form id="logout-form" action="{{ route('logout') }}" class="d-none">
         @csrf
     </form>
     <!-- Option 1: Bootstrap Bundle with Popper -->
