@@ -3,7 +3,6 @@
 namespace App\Services\User;
 
 use App\DTO\User\UserCreateDTO;
-use App\DTO\User\UserDTO;
 use App\DTO\User\UserUpdateDTO;
 use App\Models\User;
 use App\Repository\User\Contracts\UserRepositoryContract;

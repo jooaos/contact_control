@@ -17,11 +17,11 @@ final class UserParamsSearch
 
     public const BIRTH_DATE_PARAM = 'birth_date';
     public const BIRTH_DATE_OPERATOR = self::EQUAL_OPERATOR;
-    public const BIRTH_DATE_DATABASE_FIELD = 'birh_date';
+    public const BIRTH_DATE_DATABASE_FIELD = 'birth_date';
 
-    public const ADDRESS_PARAM = 'address';
-    public const ADDRESS_OPERATOR = self::LIKE_OPERATOR;
-    public const ADDRESS_DATABASE_FIELD = 'address';
+    public const COUNTRY_PARAM = 'country';
+    public const COUNTRY_OPERATOR = self::LIKE_OPERATOR;
+    public const COUNTRY_DATABASE_FIELD = 'country';
 
     public const CITY_PARAM = 'city';
     public const CITY_OPERATOR = self::LIKE_OPERATOR;
@@ -37,7 +37,7 @@ final class UserParamsSearch
             self::NAME_PARAM,
             self::EMAIL_PARAM,
             self::BIRTH_DATE_PARAM,
-            self::ADDRESS_PARAM,
+            self::COUNTRY_PARAM,
             self::CITY_PARAM,
             self::USER_TYPE_PARAM
         ];
@@ -58,9 +58,9 @@ final class UserParamsSearch
                 'operator' => self::BIRTH_DATE_OPERATOR,
                 'database_field' => self::BIRTH_DATE_DATABASE_FIELD
             ],
-            self::ADDRESS_PARAM => [
-                'operator' => self::ADDRESS_OPERATOR,
-                'database_field' => self::ADDRESS_DATABASE_FIELD
+            self::COUNTRY_PARAM => [
+                'operator' => self::COUNTRY_OPERATOR,
+                'database_field' => self::COUNTRY_DATABASE_FIELD
             ],
             self::CITY_PARAM => [
                 'operator' => self::CITY_OPERATOR,
