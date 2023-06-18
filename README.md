@@ -29,7 +29,7 @@ php artisan migrate:fresh --seed
 ```
 
 
-Now just access the URL: (http://localhost/login)[http://localhost/login]. The users created are as follows:
+Now just access the URL: [login](http://localhost/login). The users created are as follows:
 
 | Email | Password | Role |
 |--|--|--|
