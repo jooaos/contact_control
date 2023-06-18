@@ -6,7 +6,7 @@
     <div class="d-flex justify-content-between align-items-center">
         <div class="mt-5">
             <h3>
-                <span class="badge bg-secondary">Contact Control Platform</span>
+                <span class="badge bg-secondary">Contact Control</span>
             </h3>
         </div>
     </div>
