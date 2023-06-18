@@ -11,4 +11,13 @@ class UserType
     public const LABEL_SUPER_ADMIN = 'Super Admin';
     public const LABEL_ADMIN = 'Admin';
     public const LABEL_MEMBER = 'Member';
+
+    public static function allUserTypes()
+    {
+        return [
+            self::ID_SUPER_ADMIN => self::LABEL_SUPER_ADMIN,
+            self::ID_ADMIN => self::LABEL_ADMIN,
+            self::ID_MEMBER => self::LABEL_MEMBER
+        ];
+    }
 }

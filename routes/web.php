@@ -30,3 +30,8 @@ Route::post('/signup', [App\Http\Controllers\Auth\SignUpController::class, 'hand
 // Logout
 Route::get('/logout', [App\Http\Controllers\Auth\LogoutController::class, 'handle'])
     ->name('logout');
+
+Route::group(['prefix' => 'user', 'as' => 'user.'], function () {
+    Route::get('search', [App\Http\Controllers\UserController::class, 'search'])
+        ->name('search');
+});
