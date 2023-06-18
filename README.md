@@ -17,7 +17,7 @@ To run this application on *localhost* you need to have the **docker** and **doc
 ### Installing
 In the folder where you want to install the project, run the following commands in your terminal:
 ```sh
-git clone https://github.com/jooaos/contact_control
+git clone git@github.com:jooaos/contact_control.git
 cd contact_control
 docker compose up --build -d
 ```
