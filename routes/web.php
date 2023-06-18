@@ -40,4 +40,6 @@ Route::group(['prefix' => 'user', 'as' => 'user.', 'middleware' => 'auth'], func
         ->name('search');
     Route::get('profile', [App\Http\Controllers\UserController::class, 'profile'])
         ->name('profile');
+    Route::get('dashboard', [App\Http\Controllers\UserController::class, 'dashboard'])
+        ->name('dashboard');
 });

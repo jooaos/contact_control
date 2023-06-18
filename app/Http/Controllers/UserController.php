@@ -41,4 +41,9 @@ class UserController extends Controller
             return redirect(route('user.profile'))->with('negative-status', 'Could not update user, please try again');
         }
     }
+
+    public function dashboard()
+    {
+        return view('user.dashboard');
+    }
 }

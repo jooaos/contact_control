@@ -9,28 +9,20 @@ use App\Services\User\Contracts\UserServiceContract;
 use App\Trait\Log;
 use Livewire\Component;
 
-class UserSearch extends Component
+class UserDashboard extends Component
 {
     use Log;
 
     // These properties must be identical to params setted at $queryString
     public $name;
     public $email;
-    public $birth_date;
-    public $country;
-    public $city;
-    public $user_type;
 
     private UserServiceContract $userService;
     private UserSearchServiceContract $userSearchService;
 
     protected $queryString = [
         UserParamsSearch::NAME_PARAM,
-        UserParamsSearch::EMAIL_PARAM,
-        UserParamsSearch::BIRTH_DATE_PARAM,
-        UserParamsSearch::COUNTRY_PARAM,
-        UserParamsSearch::CITY_PARAM,
-        UserParamsSearch::USER_TYPE_PARAM,
+        UserParamsSearch::EMAIL_PARAM
     ];
 
     public function __construct()
@@ -47,9 +39,10 @@ class UserSearch extends Component
         } else {
             $contacts = $this->userSearchService->getByCustomQuery($search);
         }
-        return view('livewire.user.search', [
-            'rolesAvailable' => UserType::allUserTypes(),
-            'contacts' => $contacts
+        $countRoles = $this->countRoles($contacts->toArray());
+        return view('livewire.user.dashboard', [
+            'contacts' => $contacts,
+            'countRoles' => $countRoles
         ]);
     }
 
@@ -64,5 +57,32 @@ class UserSearch extends Component
             }
         }
         return array_merge(...$userSearch);
+    }
+
+    private function countRoles(array $contacts)
+    {
+        $superAdminCount = 0;
+        $adminCount = 0;
+        $memberCount = 0;
+        foreach ($contacts as $contact) {
+            switch ($contact['user_type_id']) {
+                case UserType::ID_SUPER_ADMIN;
+                    $superAdminCount++;
+                    break;
+                case UserType::ID_ADMIN;
+                    $adminCount++;
+                    break;
+                case UserType::ID_MEMBER;
+                    $memberCount++;
+                    break;
+            }
+        }
+        $countRoles = [
+            'superAdmin' => $superAdminCount,
+            'admin' => $adminCount,
+            'member' => $memberCount
+        ];
+        $this->emit('chartDataUpdated', $countRoles);
+        return $countRoles;
     }
 }

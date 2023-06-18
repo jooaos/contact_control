@@ -1,6 +1,6 @@
 @extends('template.template-logged')
 
-@section('title', 'Search Contact')
+@section('title', 'Profile')
 
 @section('profile-page', 'active')
 
